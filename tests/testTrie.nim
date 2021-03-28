@@ -10,5 +10,8 @@ import unittest
 import Krestiapkg/Trie
 
 test "Int tree":
-  let trie = newTrie[ref int]()
-  check trie.get("abc") == nil
+  let trie = newTrie[int]()
+  trie.put("abc", 3)
+  trie.put("a", 1)
+  check trie.get("abc").value == 3
+  check trie.get("ab").kind == absent
